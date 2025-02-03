@@ -1,6 +1,17 @@
 {
   "dependencies": {
     "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
     "express": "^4.21.2"
-  }
+  },
+  "name": "public_api",
+  "version": "1.0.0",
+  "description": "This is a public api",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "riverherizo",
+  "license": "ISC"
 }

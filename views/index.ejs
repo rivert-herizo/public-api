@@ -11,6 +11,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Hello everyone</h1>
+        <h1><% if(locals.character) {%>
+            <%= character.name %>
+
+            <%} %>
+        </h1>
+
+        <% if(locals.character) {%>
+            <img src=<%= character.image %> alt="character">
+            
+        <%} %>
     </body>
 </html>

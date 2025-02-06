@@ -1,25 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Home</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <h1><% if(locals.character) {%>
-            <%= character.name %>
-
-            <%} %>
-        </h1>
-
-        <% if(locals.character) {%>
-            <img src=<%= character.image %> alt="character">
-            
-        <%} %>
-    </body>
-</html>
+<%- include("partials/header.ejs") %>
+    <section class="hero">
+        <h1>Rick and Morty</h1>
+    </section>
+    <section id="characters" class="characters">
+        <div class="character-page">
+            <h2>Characters</h2>
+            <div class="character-container">
+                <% if(locals.characters) {%>
+                    <% characters.forEach(function(character) { %>
+                        <div class="character-card">
+                            <img src="<%= character.image %>" alt="<%= character.name %>" class="character-image">
+                            <div class="character-text">
+                                <h3 class="name"><%= character.name %></h3>
+                                <p class="character-citation"><%= character.location.name %></p>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div>
+        <div class="pagination">
+            <% if (info.prev) { %>
+                <a href="/<%= currentPage - 1 %>#characters">Previous</a>
+            <% } %>
+            <% if (info.next) { %>
+                <a href="/<%= currentPage + 1 %>#characters">Next</a>
+            <% } %>
+        </div>
+        
+    </section>
+<%- include("partials/footer.ejs") %>
+        

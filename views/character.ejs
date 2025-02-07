@@ -1,3 +1,42 @@
 <%- include("partials/header.ejs") %>
-        <h1>Characters</h1>
+        <div class="search_character">
+                <form method="post">
+                        <label for="search_name" class="search_label">Character's Name</label>
+                        <br>
+                        <input id="search_name" type="text" class="character_input" placeholder="Search a character by name" name="name">
+                        <br>
+                        <label for="search_status" class="search_label">Character's Status</label>
+                        <br>
+                        <input id="search" type="text" class="character_input" placeholder="Search a character by status" name="status">
+                        <br>
+                        <input type="submit" value="Search" class="character_submit" formaction="/get-character"> 
+                </form>
+        </div>
+        <div class="data">
+                <h1>Results</h1>
+                <% if(locals.characters) {%>
+                        <div class="search_result">
+                                <% characters.forEach(function(character) { %>
+                                        <a href="#">
+                                            <div class="character-card">
+                                                <img src="<%= character.image %>" alt="<%= character.name %>" class="character-image">
+                                                <div class="character-text">
+                                                    <h3 class="name"><%= character.name %></h3>
+                                                    <p class="character-citation"><%= character.location.name %></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                    <% }) %>
+                        </div>  
+                <% } else {%>   
+                  
+                       <div class="waiting_data_container">
+                          <div class="waiting_data"></div>
+                       </div>
+                <% } %>
+        </div>
+        
+
+
 <%- include("partials/footer.ejs") %>

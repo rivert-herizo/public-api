@@ -8,13 +8,16 @@
             <div class="character-container">
                 <% if(locals.characters) {%>
                     <% characters.forEach(function(character) { %>
-                        <div class="character-card">
-                            <img src="<%= character.image %>" alt="<%= character.name %>" class="character-image">
-                            <div class="character-text">
-                                <h3 class="name"><%= character.name %></h3>
-                                <p class="character-citation"><%= character.location.name %></p>
+                        <a href="/character/<%= character.id %>">
+                            <div class="character-card">
+                                <img src="<%= character.image %>" alt="<%= character.name %>" class="character-image">
+                                <div class="character-text">
+                                    <h3 class="name"><%= character.name %></h3>
+                                    <p class="character-citation"><%= character.location.name %></p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
+                        
                     <% }) %>
                 <% } %>
             </div>

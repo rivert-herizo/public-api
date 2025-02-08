@@ -1,3 +1,26 @@
 <%- include("partials/header.ejs") %>
-        <h1>Episode</h1>
+        <section class="episode_section">
+                <h1 class="episode_heading">Episode</h1>
+                <div class="episode_container">
+                        <% if(locals.episodes) {%>
+                        <% episodes.forEach(function(episode) { %>
+                        <a href="/episoded/<%= episode.id %>">
+                                <div class="episode_card">
+                                        <p><b>Name :</b> <%= episode.name %></p>
+                                        <p><b>Air date :</b> <%= episode.air_date %></p>
+                                        <p><b>Episode :</b> <%= episode.episode %></p>
+                                </div>
+                        </a>
+                        <% }) %>
+                        <% } %>
+                </div>
+                <div class="pagination">
+                        <% if (info.prev) { %>
+                            <a href="/episode/<%= currentPage - 1 %>">Previous</a>
+                        <% } %>
+                        <% if (info.next) { %>
+                            <a href="/episode/<%= currentPage + 1 %>">Next</a>
+                        <% } %>
+                </div>
+        </section>
 <%- include("partials/footer.ejs") %>

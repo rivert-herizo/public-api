@@ -7,8 +7,6 @@ const PORT = 3000;
 
 const api_url = "https://rickandmortyapi.com/api";
 
-
-
 app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,8 +17,47 @@ app.get('/characters', (req, res) => {
     res.render('character.ejs');
 });
 
-app.get('/episode', (req,res) => {
-    res.render('episode.ejs');
+app.get('/episode', async (req,res) => {
+    let pageCount = parseInt(req.params.page) || 1;
+    try {
+        const all_episodes = await axios.get(`${api_url}/episode/?page=${pageCount}`);
+        console.log(all_episodes.data.info.next, parseInt(req.params.page));
+        res.render('episode.ejs', {
+            episodes: all_episodes.data.results,
+            info: all_episodes.data.info,
+            currentPage: pageCount,
+        });
+    } catch(error) {
+        console.log(error.response?.data || error.message);
+        res.status(500);
+    }
+    
+});
+
+app.get('/episode/:page?', async (req, res) => {
+    let pageCount = parseInt(req.params.page) || 1; // Default to page 1 if no page parameter
+    try {
+        const all_episodes = await axios.get(`${api_url}/episode/?page=${pageCount}`);
+        res.render('episode.ejs', {
+            episodes: all_episodes.data.results,
+            info: all_episodes.data.info,
+            currentPage: pageCount,
+        });
+    } catch (error) {
+        console.log(error.response?.data || error.message);
+        res.status(500);
+    }
+});
+
+app.get('/episoded/:id', async(req, res) => {
+    const episodeId = req.params.id;
+    try {
+        const response = await axios.get(`${api_url}/episode/${episodeId}`);
+        res.render('episode_page.ejs', { episode: response.data });
+    } catch (error) {
+        console.log(error.response?.data || error.message);
+        res.status(500);
+    }
 });
 
 app.get('/character', (req,res) => {
@@ -52,8 +89,6 @@ app.get('/character/:id', async (req, res) => {
         res.status(500);
     }
 });
-
-
 
 app.get('/', async (req,res) => {
     let pageCount = parseInt(req.params.page) || 1;

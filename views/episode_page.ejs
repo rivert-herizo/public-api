@@ -1,0 +1,14 @@
+<%- include("partials/header.ejs") %>
+    <div class="episode_page_container">
+            <% if(locals.episode) {%>
+
+                <div class="episode_detail_card">
+                        <p><b>Name :</b> <%= episode.name %></p>
+                        <p><b>Air date :</b> <%= episode.air_date %></p>
+                        <p><b>Episode :</b> <%= episode.episode %></p>
+                        <p><b>URL :</b> <%= episode.url %></p>
+                        <p><b>Created :</b> <%= episode.created %></p>
+                </div>
+                <% } %>
+    </div>
+<%- include("partials/footer.ejs") %>

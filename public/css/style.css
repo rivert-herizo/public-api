@@ -35,6 +35,7 @@ header{
     height: 70px;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 footer {
@@ -56,6 +57,29 @@ ul {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+}
+
+.menu {
+    display: none;
+}
+
+.side_nav {
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.side_nav_list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .logo {
@@ -233,3 +257,50 @@ ul {
     gap: 20px;
     flex-wrap: wrap;
 }
+
+.episode_section {
+    max-width: 1000px;
+    margin: 0px auto;
+    padding-top: 100px;
+}
+
+.episode_heading {
+    margin-bottom: 50px;
+}
+
+.episode_container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.episode_card {
+    height: auto;
+    width: 320px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px grey;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.episode_detail_card {
+    height: auto;
+    width: auto;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px grey;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.episode_page_container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

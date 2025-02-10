@@ -61,6 +61,14 @@ ul {
 
 .menu {
     display: none;
+    font-size: 3rem;
+}
+
+.close {
+    position: absolute;
+    font-size: 2rem;
+    top: 2rem;
+    right: 2rem;
 }
 
 .side_nav {
@@ -111,10 +119,11 @@ ul {
 .character-page {
     max-width: 1000px;
     margin: 0 auto;
+
 }
 
 .character-container {
-    padding-top: 30px;
+    padding-top: 2rem;
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -293,6 +302,8 @@ ul {
     box-shadow: 1px 1px 1px 1px grey;
     padding: 30px;
     border-radius: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .episode_page_container {
@@ -302,5 +313,106 @@ ul {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width:450px) {
+    .hero {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .character_page_container {
+        width: auto;
+        height: auto;
+        padding: 3rem;
+    }
+}
+
+@media (max-width:950px) {
+    .navlist {
+        display: none;
+    }
+
+    .menu {
+        display: initial;
+    }
+    .principal_navlist {
+        width: 80%;
+    }
+    .hero {
+        padding: auto;
+        font-size: 3rem;
+    }
+
+    .character-page {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .data {
+        width: 100%;
+        padding: 2rem; 
+    }
+
+    .character-container {
+        justify-content: center;
+        margin: 2rem;
+    }
+    .search_result {
+        justify-content: center;
+        margin: 2rem;
+    }
+}
+
+
+@media (max-width:1000px) {
+    .character-container {
+        justify-content: center;
+        margin: 2rem;
+    }
+
+    .episode_section {
+        width: 100%;
+        padding: 2rem;
+
+    }
+
+    .episode_page_container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .episode_detail_card {
+        width: 100%; /* Ensures it takes full available width */
+        max-width: 90%; /* Prevents it from being too wide */
+        height: auto;
+        padding: 1rem;
+        flex-wrap: wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .episode_container {
+        justify-content: center;
+    }
+
+    .search_result {
+        justify-content: center;
+        margin: 2rem;
+    }
+
+    .search_character {
+        width: auto;
+    }
+
+    .character_input {
+        width: 100%;
+    }
+
+    .character_submit {
+        width: 100%;
+    }
+}
+
 
 
